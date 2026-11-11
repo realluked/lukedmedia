@@ -1,0 +1,8 @@
+# Private notes and local tooling: never publish these to GitHub Pages
+CLAUDE.md
+.claude/
+
+# macOS / Windows clutter (._* files appear on exFAT drives like the Lexar)
+.DS_Store
+._*
+Thumbs.db

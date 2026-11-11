@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>lukedmedia</title>
+<meta name="description" content="Videographer in Johannesburg. Reels, YouTube edits and ads, cut to the song you pick. Dirt bikes first, but I film anything: sport, events, businesses and property.">
+<meta name="theme-color" content="#EEE6D8">
+<meta property="og:title" content="Welcome to lukedmedia">
+<meta property="og:description" content="Reels, YouTube edits and ads. Dirt bikes first, but I film anything.">
+<meta property="og:url" content="https://lukedmedia.com">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<script>document.documentElement.classList.add("js")</script>
+<style>
+:root{
+  --bone:#EEE6D8;        /* page */
+  --sand:#E2D5BF;        /* panels */
+  --linen:#D0C2AA;       /* hairlines */
+  --taupe:#6B5F4F;       /* secondary text */
+  --espresso:#1D1915;    /* ink */
+  --espresso-2:#3A3129;  /* ink hover */
+  --rec:#C23A2E;         /* the REC dot and error text, nothing else */
+  --screen:#171411;      /* behind video */
+
+  --display:"Bodoni Moda","Bodoni 72","Didot","Bodoni MT",Georgia,serif;
+  --sans:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --head:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;  /* big text: Archivo, narrow and heavy */
+  --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --ease-io:cubic-bezier(.7,0,.2,1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+body{
+  margin:0;background:var(--bone);color:var(--espresso);
+  font-family:var(--sans);font-size:1rem;font-weight:500;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.shell{max-width:1180px;margin-inline:auto}
+a{color:inherit}
+::selection{background:var(--espresso);color:var(--bone)}
+:focus-visible{outline:2px solid var(--espresso);outline-offset:3px}
+section[id]{scroll-margin-top:5.5rem}
+/* big text: condensed, heavy */
+h1,h2,.price,.services dt,.kit-name{font-family:var(--head);font-stretch:72%;font-weight:800}
+.cap{margin:0;font-stretch:125%;font-weight:700;font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;line-height:1.4}
+
+/* ---------- wordmark: Bodoni 72 letters as outlines, drawn once (#wm) and reused everywhere ---------- */
+@property --dot{syntax:"<number>";inherits:true;initial-value:1}
+.mark{display:inline-block;color:var(--espresso);text-decoration:none;line-height:0}
+.logo{display:block;width:auto;overflow:visible;color:var(--espresso)}
+.top .logo{height:1.45rem;animation:rec 2.4s steps(1,end) infinite}
+@keyframes rec{0%,64%{--dot:1}65%,100%{--dot:.18}}
+
+/* ---------- header: sticks, tucks away on the way down, back on the way up ---------- */
+.top{
+  position:sticky;top:0;z-index:30;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding-block:1.1rem;border-bottom:1px solid var(--linen);
+  background:var(--bone);box-shadow:0 0 0 100vmax var(--bone);clip-path:inset(0 -100vmax);
+  transition:transform .45s var(--ease);
+}
+.top.tucked{transform:translateY(-101%)}
+.nav{display:flex;align-items:center;gap:clamp(1.1rem,3vw,2.2rem)}
+.nav a{position:relative;text-decoration:none;color:var(--taupe);padding-block:.2rem;transition:color .25s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease-io)}
+.nav a:hover{color:var(--espresso)}
+.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .nav-cta{color:var(--espresso)}
+.nav .nav-cta::after{transform:scaleX(1)}
+.nav .nav-cta:hover::after{animation:wipe .6s var(--ease-io)}
+@keyframes wipe{0%{transform:scaleX(1);transform-origin:right}49%{transform:scaleX(0);transform-origin:right}50%{transform:scaleX(0);transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
+@media (max-width:620px){.nav a:not(.nav-cta){display:none}}
+
+/* ---------- buttons: fill on hover, press down on tap ---------- */
+.btn{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3rem;padding:0 1.45rem;
+  background:var(--espresso);color:var(--bone);border:1px solid var(--espresso);border-radius:0;
+  font:inherit;font-stretch:125%;font-weight:700;font-size:.68rem;letter-spacing:.17em;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;user-select:none;
+  transition:color .35s var(--ease),border-color .35s var(--ease),transform .14s ease;
+}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--espresso-2);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease-io)}
+.btn.ghost{background:transparent;color:var(--espresso);border-color:var(--linen)}
+.btn.ghost::before{background:var(--espresso)}
+@media (hover:hover){
+  .btn:hover::before{transform:scaleX(1);transform-origin:left}
+  .btn.ghost:hover{color:var(--bone);border-color:var(--espresso)}
+}
+.btn:active{transform:scale(.965)}
+.btn:active::before{transform:scaleX(1);transform-origin:left;transition-duration:.22s}
+.btn.ghost:active{color:var(--bone);border-color:var(--espresso)}
+.btn.is-on{background:var(--espresso);color:var(--bone);border-color:var(--espresso)}
+
+/* ---------- intro ---------- */
+.intro{display:grid;gap:1.4rem;padding-block:clamp(2.4rem,7vw,5rem) clamp(2rem,5vw,3.4rem)}
+h1{margin:0;font-size:clamp(3.4rem,15vw,9.2rem);line-height:.9;letter-spacing:-.02em}
+h1 .line{display:block}
+/* "Welcome to" and the wordmark are exactly as wide as each other (4.26em) */
+h1 .w.h1-logo{display:flex;justify-content:flex-end;margin-top:.12em}
+h1 .h1-logo .logo{width:4.26em;max-width:100%;height:auto}
+h1 .w{display:inline-block}
+/* The headline is sized from the column width, so it keeps one exact shape on every screen
+   instead of the wordmark drifting about as the window changes */
+@supports (width:1cqi){
+  .intro{container-type:inline-size}
+  /* phones: both lines run edge to edge as one solid block */
+  h1{font-size:calc(100cqi / 4.27)}
+  h1 .w.h1-logo{display:block}
+  @media (min-width:640px){
+    /* wider: "Welcome to" flush left, wordmark flush right, "luked" starting right under "to".
+       3.53em is where "to" starts; 3.53 + 4.26 = 7.79em, the full column */
+    h1{font-size:calc(100cqi / 7.8)}
+    h1 .w.h1-logo{margin-left:3.53em}
+  }
+}
+.intro-copy{display:flex;flex-direction:column;gap:1.3rem;min-width:0;margin-top:clamp(.8rem,3vw,2.2rem)}
+/* both intro lines: same size, one shared width, so they line up as a block */
+.intro-text{max-width:30rem}
+.lede{margin:0;font-size:1.06rem;line-height:1.6;text-wrap:pretty}
+.lede-2{color:var(--taupe)}
+/* once the first sentence fits on one line, the grey sentence starts on its own line
+   (so the colour change never lands mid-line) and wraps into even lines */
+@media (min-width:480px){
+  .lede{text-wrap:balance}
+  .lede-2{display:block}
+}
+.cta-row{display:flex;flex-wrap:wrap;gap:.7rem}
+@media (min-width:960px){
+  .intro-copy{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:3rem}
+}
+
+/* ---------- work ---------- */
+.reels{display:grid;gap:clamp(1.4rem,2.4vw,1.6rem);align-items:start}
+/* 3.16 : 1 makes a 16:9 clip and a 9:16 clip come out the same height */
+@media (min-width:860px){.reels{grid-template-columns:minmax(0,3.16fr) minmax(0,1fr)}}
+.clip{margin:0;display:grid;gap:.6rem;min-width:0}
+.clip.tall{max-width:min(100%,400px)}
+.screen{position:relative;background:var(--screen);overflow:hidden}
+.wide .screen{aspect-ratio:16/9}
+.tall .screen{aspect-ratio:9/16}
+.screen video,.screen img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+@media (hover:hover){.screen:hover video{transform:scale(1.025)}}
+.clip figcaption{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.2rem .8rem}
+.clip figcaption b{font-weight:700}
+.meta{font-stretch:75%;font-variant-numeric:tabular-nums;color:var(--taupe);font-size:.85rem}
+.clip video{cursor:pointer}
+.vid-toggle,.vid-open{
+  position:absolute;left:.6rem;bottom:.6rem;z-index:2;
+  min-height:2rem;padding:0 .7rem;border:0;border-radius:0;cursor:pointer;
+  background:rgba(23,20,17,.72);color:var(--bone);
+  font:inherit;font-stretch:125%;font-weight:700;font-size:.6rem;letter-spacing:.17em;text-transform:uppercase;
+  transition:opacity .3s,transform .14s ease;
+}
+.vid-open{left:auto;right:.6rem}
+.vid-toggle:active,.vid-open:active{transform:scale(.94)}
+@media (hover:hover){
+  .vid-toggle,.vid-open{opacity:0}
+  .screen:hover .vid-toggle,.screen:hover .vid-open,.vid-toggle:focus-visible,.vid-open:focus-visible,.screen.paused .vid-toggle{opacity:1}
+  .vid-toggle:hover,.vid-open:hover{background:var(--bone);color:var(--espresso)}
+}
+
+/* the viewer: one clip, big, with sound */
+.viewer{
+  width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;border:0;color:var(--bone);
+  padding:max(16px, env(safe-area-inset-top, 0px)) 16px max(16px, env(safe-area-inset-bottom, 0px));
+  background:rgba(23,20,17,.97);opacity:0;
+  transition:opacity .35s var(--ease),overlay .35s allow-discrete,display .35s allow-discrete;
+}
+.viewer[open]{opacity:1}
+@starting-style{.viewer[open]{opacity:0}}
+.viewer::backdrop{background:transparent}
+.viewer-box{height:100%;max-width:1180px;margin:0 auto;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:.9rem}
+.viewer video{width:100%;height:100%;min-height:0;object-fit:contain;background:#000;transition:transform .5s var(--ease)}
+@starting-style{.viewer[open] video{transform:scale(.96)}}
+.viewer-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1rem}
+.viewer-cap{margin:0}
+.viewer-cap .meta{color:#B9AD99}
+.viewer-nav{display:flex;gap:.5rem}
+.vbtn{
+  min-height:2.6rem;padding:0 1rem;cursor:pointer;border-radius:0;
+  background:transparent;color:var(--bone);border:1px solid rgba(238,230,216,.35);
+  font:inherit;font-stretch:125%;font-weight:700;font-size:.62rem;letter-spacing:.17em;text-transform:uppercase;
+  transition:background .25s,color .25s,border-color .25s,transform .14s ease;
+}
+.vbtn:hover{background:var(--bone);color:var(--espresso);border-color:var(--bone)}
+.vbtn:active{transform:scale(.95)}
+html.viewing{overflow:hidden}
+.more{margin:clamp(1.2rem,3vw,1.8rem) 0 0}
+.more a{position:relative;text-decoration:none;padding-bottom:.2rem}
+.more a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform-origin:left;transition:transform .5s var(--ease-io)}
+.more a:hover::after{animation:wipe .6s var(--ease-io)}
+
+/* an empty slot, only ever shown while previewing on your own computer */
+.screen.empty{background:var(--sand);outline:1px solid var(--linen);outline-offset:-1px;display:flex;align-items:center;justify-content:center}
+.screen.empty::after{content:"Drop " attr(data-file);font-stretch:75%;font-variant-numeric:tabular-nums;color:var(--taupe);font-size:.85rem}
+
+/* ---------- sections ---------- */
+.section{padding-block:clamp(4rem,10vw,7rem)}
+.sec-head{display:grid;gap:.8rem;max-width:46rem;margin-bottom:clamp(1.8rem,4.5vw,3rem)}
+h2{margin:0;font-size:clamp(2.6rem,6.6vw,4.6rem);line-height:.92;letter-spacing:-.015em}
+.sec-note{margin:0;max-width:46ch;color:var(--taupe)}
+h3{margin:0}
+
+/* about */
+.about{display:grid;gap:clamp(1.6rem,4vw,3rem);border-top:1px solid var(--linen);align-items:end}
+.about .me{margin:0;max-width:420px}
+.about .me .screen{aspect-ratio:4/5}
+.about-copy{display:grid;gap:1.1rem}
+.about .big{margin:0;max-width:32ch;font-weight:600;font-size:clamp(1.4rem,3vw,2.05rem);line-height:1.3;letter-spacing:-.012em;text-wrap:pretty}
+.about .small{margin:0;color:var(--taupe)}
+@media (min-width:860px){.about{grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);column-gap:4rem}}
+.about:not(:has(.me)){grid-template-columns:minmax(0,1fr)}
+
+/* what I do */
+.services{margin:0;border-top:1px solid var(--espresso)}
+.services > div{display:grid;gap:.35rem;padding-block:1.5rem;border-bottom:1px solid var(--linen)}
+.services dt{font-size:clamp(1.9rem,3.8vw,2.6rem);line-height:1;letter-spacing:-.01em}
+.services dd{margin:0;max-width:54ch;color:var(--taupe)}
+@media (min-width:760px){.services > div{grid-template-columns:minmax(0,1fr) minmax(0,2fr);column-gap:3rem;align-items:baseline}}
+
+/* arsenal */
+.kit{list-style:none;margin:0;padding:0;border-top:1px solid var(--espresso)}
+.kit li{display:grid;gap:.15rem;padding-block:1.2rem;border-bottom:1px solid var(--linen)}
+.kit li > *{transition:transform .45s var(--ease)}
+.kit-name{font-size:clamp(1.55rem,2.9vw,2rem);line-height:1.05;letter-spacing:-.005em}
+.kit-spec{font-stretch:75%;font-variant-numeric:tabular-nums;color:var(--taupe);font-size:.95rem}
+@media (min-width:760px){
+  .kit li{grid-template-columns:minmax(0,1.15fr) minmax(0,1.35fr) minmax(0,.75fr);column-gap:2rem;align-items:baseline}
+  .kit-spec{text-align:right}
+}
+@media (hover:hover){.kit li:hover > *{transform:translateX(.6rem)}.kit li:hover > .kit-spec{transform:none}}
+.kit-next{margin:1.1rem 0 0;color:var(--taupe)}
+
+/* prices */
+.sessions{display:grid;grid-template-columns:minmax(0,1fr);gap:1px;background:var(--linen);border-block:1px solid var(--espresso)}
+@media (min-width:680px){.sessions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1060px){.sessions{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.session{position:relative;display:flex;flex-direction:column;gap:1rem;padding:1.7rem 0 1.9rem;background:var(--bone);min-width:0;transition:background .4s var(--ease)}
+.session::before{content:"";position:absolute;left:0;right:0;top:-1px;height:3px;background:var(--espresso);transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease-io)}
+.session.chosen::before{transform:scaleX(1)}
+@media (hover:hover){.session:hover::before{transform:scaleX(1)}}
+.session.custom{background:var(--sand);padding-inline:1.1rem}
+@media (min-width:680px){.session,.session.custom{padding-inline:1.3rem}}
+.s-top{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem}
+.price{margin:0;font-size:clamp(3rem,5.6vw,3.9rem);line-height:1;letter-spacing:-.01em;font-variant-numeric:lining-nums}
+.price .cur{font-size:.5em;vertical-align:.75em;margin-right:.08em}
+.price.words{font-size:clamp(2.6rem,4.6vw,3.2rem)}
+.unit{margin:-.5rem 0 0;color:var(--taupe);font-size:.85rem}
+.for{margin:0}
+.incl{list-style:none;margin:0;padding:0;display:grid;gap:.45rem;font-size:.95rem}
+.incl li{position:relative;padding-left:1.05rem}
+.incl li::before{content:"";position:absolute;left:0;top:.78em;width:.5rem;height:1px;background:var(--taupe)}
+.session .pick{margin-top:auto;align-self:flex-start}
+
+.after{display:grid;gap:3rem;margin-top:clamp(3rem,6vw,4.5rem)}
+@media (min-width:860px){.after{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:4rem}}
+.after h3{margin:0 0 .6rem;color:var(--taupe)}
+.extras{margin:0;display:grid;border-top:1px solid var(--espresso)}
+.extras > div{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-block:.75rem;border-bottom:1px solid var(--linen)}
+.extras dd{margin:0;font-stretch:75%;font-variant-numeric:tabular-nums;font-size:1.05rem;white-space:nowrap}
+.how{margin:0;padding-top:.9rem;border-top:1px solid var(--espresso);max-width:46ch}
+
+/* other */
+.other-row{display:grid;gap:1.2rem;padding-top:clamp(1.4rem,3vw,2rem);border-top:1px solid var(--espresso)}
+.other-copy{display:grid;gap:.9rem;justify-items:start;max-width:40rem}
+.other-lede{margin:0;font-weight:600;font-size:clamp(1.35rem,2.8vw,1.9rem);line-height:1.3;letter-spacing:-.012em;text-wrap:pretty}
+.other-copy .btn{margin-top:.4rem}
+/* stacked like every other section: heading, then text */
+.reel-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(.8rem,2vw,1.4rem);margin-top:clamp(1.8rem,4vw,2.8rem)}
+.reel-row .clip.tall{max-width:none}
+@media (max-width:639px){
+  /* phones: swipe through the reels like on Instagram */
+  .reel-row{
+    grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:68%;
+    overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:.4rem;
+    margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    padding-inline:max(16px, env(safe-area-inset-left, 0px));
+    scroll-padding-inline:max(16px, env(safe-area-inset-left, 0px));
+  }
+  .reel-row::-webkit-scrollbar{display:none}
+  .reel-row .clip{scroll-snap-align:start}
+}
+.other-ask{border-top:0;padding-top:0;margin-top:clamp(1.8rem,4vw,2.6rem)}
+.other-ask > .cap{color:var(--taupe);padding-top:.35rem}
+.wide-row{display:grid;gap:clamp(1.2rem,2.4vw,1.6rem);margin-top:clamp(1.8rem,4vw,2.8rem)}
+@media (min-width:760px){.wide-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kinds{list-style:none;margin:.3rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.kind{
+  position:relative;isolation:isolate;overflow:hidden;min-height:2.8rem;padding:0 1.1rem;cursor:pointer;
+  background:transparent;color:var(--espresso);border:1px solid var(--espresso);border-radius:0;
+  font:inherit;font-size:1rem;font-weight:600;transition:color .3s var(--ease),transform .14s ease;
+}
+.kind::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--espresso);transform:scaleY(0);transform-origin:bottom;transition:transform .4s var(--ease-io)}
+@media (hover:hover){.kind:hover{color:var(--bone)}.kind:hover::before{transform:scaleY(1)}}
+.kind:active{transform:scale(.95);color:var(--bone)}
+.kind:active::before{transform:scaleY(1)}
+
+/* ---------- booking form ---------- */
+.book{border-top:1px solid var(--linen)}
+.form{display:grid;gap:2.1rem;max-width:900px}
+.form fieldset{margin:0;padding:0;border:0;min-width:0}
+.form legend{padding:0;margin-bottom:.85rem;color:var(--taupe)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{position:relative;display:inline-flex}
+.chip input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.chip span{
+  display:inline-flex;align-items:center;min-height:2.6rem;padding:0 1rem;
+  border:1px solid var(--linen);background:transparent;font-size:.93rem;user-select:none;
+  transition:background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease),transform .14s ease;
+}
+.chip input:hover + span{border-color:var(--taupe)}
+.chip input:active + span{transform:scale(.95)}
+.chip input:checked + span{background:var(--espresso);border-color:var(--espresso);color:var(--bone);animation:pop .38s var(--ease)}
+.chip input:focus-visible + span{outline:2px solid var(--espresso);outline-offset:2px}
+@keyframes pop{0%{transform:scale(.93)}55%{transform:scale(1.045)}100%{transform:scale(1)}}
+
+.fields{display:grid;gap:1.5rem;align-items:end}
+@media (min-width:680px){.fields{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}}
+@media (min-width:960px){.fields{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.cap .opt{text-transform:none;letter-spacing:0;opacity:.75}
+.field{display:grid;gap:.25rem;min-width:0}
+.field label{color:var(--taupe)}
+.field input,.field textarea{
+  width:100%;padding:.55rem 0;border:0;border-radius:0;color:var(--espresso);font:inherit;font-size:1rem;
+  background:linear-gradient(var(--espresso),var(--espresso)) no-repeat left bottom / 0 1px, transparent;
+  border-bottom:1px solid var(--linen);
+  transition:background-size .5s var(--ease-io);
+}
+.field input:focus,.field textarea:focus{outline:none;background-size:100% 1px}
+.field textarea{resize:vertical;min-height:4.6rem}
+.field ::placeholder{color:var(--taupe);opacity:.65}
+/* the budget box slides open when someone picks Custom */
+.drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.drawer > div{overflow:hidden}
+.drawer.open{grid-template-rows:1fr}
+.drawer .field{padding-top:1.4rem;max-width:420px}
+
+.send{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem}
+.send .btn.ready{animation:nudge .55s var(--ease)}
+@keyframes nudge{0%{transform:scale(1)}40%{transform:scale(1.05)}100%{transform:scale(1)}}
+.status{margin:0;font-stretch:75%;font-variant-numeric:tabular-nums;color:var(--taupe);font-size:.95rem;letter-spacing:.02em}
+.status b{color:var(--espresso);font-weight:700}
+.err{margin:0;color:var(--rec);font-size:.93rem}
+.preview summary{cursor:pointer;color:var(--taupe);width:max-content;max-width:100%}
+.preview pre{margin:.8rem 0;padding:1rem;background:var(--sand);border:1px solid var(--linen);font-family:var(--mono);font-size:.78rem;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.direct{margin:0;color:var(--taupe);font-size:.93rem}
+.direct a{color:var(--espresso);text-decoration-color:var(--linen);text-underline-offset:.2em;transition:text-decoration-color .3s}
+.direct a:hover{text-decoration-color:var(--espresso)}
+
+/* ---------- footer ---------- */
+.foot{display:grid;gap:2rem;padding-block:clamp(3rem,7vw,5rem) 2.2rem;border-top:1px solid var(--espresso)}
+.foot .mark{display:block}
+.foot .logo{width:min(100%,64rem);height:auto}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;color:var(--taupe);font-size:.92rem}
+.foot-row p{margin:0}
+.foot-links{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem}
+.foot-links a{color:var(--espresso);text-decoration:none;border-bottom:1px solid var(--linen);transition:border-color .3s}
+.foot-links a:hover{border-bottom-color:var(--espresso)}
+
+/* ---------- motion: things ease in as you reach them (only when JS runs) ---------- */
+.js .intro .w,.js .intro-copy > *{opacity:0;transform:translateY(.4em);animation:rise .9s var(--ease) forwards;animation-delay:calc(var(--i,0) * 80ms + 120ms)}
+.js .intro-copy > *{transform:translateY(16px)}
+@keyframes rise{to{opacity:1;transform:none}}
+/* headline: "Welcome" and "to" slide up from behind a line, the wordmark sweeps in left to right,
+   then the red dot switches on like a REC light (pops, blinks once, stays on) */
+@property --dotS{syntax:"<number>";inherits:true;initial-value:1}
+.js h1 .line .w{opacity:1;animation:mask-up 1s var(--ease) both;animation-delay:calc(var(--i,0) * 110ms + 150ms)}
+@keyframes mask-up{
+  from{transform:translateY(100%);clip-path:inset(0 -10% 100% -10%)}
+  to{transform:none;clip-path:inset(-15% -10% -15% -10%)}
+}
+.js h1 .w.h1-logo{opacity:1;transform:none;animation:none}
+.js h1 .h1-logo .logo{animation:wm-sweep 1.15s var(--ease-io) .55s both,wm-rec 1.1s linear 1.6s both}
+@keyframes wm-sweep{
+  from{clip-path:inset(-30% 101% -30% -2%);transform:translateX(-.05em)}
+  to{clip-path:inset(-30% -2% -30% -2%);transform:none}
+}
+@keyframes wm-rec{
+  0%{--dot:0;--dotS:0}
+  28%{--dot:1;--dotS:1.4}
+  44%{--dotS:1}
+  58%{--dot:1}
+  59%{--dot:.15}
+  76%{--dot:.15}
+  77%,100%{--dot:1;--dotS:1}
+}
+/* the line under the headline and the buttons come in once the wordmark is on its way */
+.js .intro-copy > *{animation-delay:calc(var(--i,0) * 90ms + 650ms)}
+.js [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
+.js [data-reveal].in{opacity:1;transform:none}
+/* the price grid shows as one piece; each card's contents then ease in */
+.js .sessions[data-reveal]{transform:none}
+.js .sessions .session > :not(.pick){opacity:0;transform:translateY(14px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0) * 110ms + 150ms)}
+.js .sessions.in .session > :not(.pick){opacity:1;transform:none}
+/* video and photo frames open like a curtain */
+.js [data-curtain] .screen{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s var(--ease-io)}
+.js [data-curtain] .screen video,.js [data-curtain] .screen img{transform:scale(1.12)}
+.js [data-curtain].in .screen{clip-path:inset(0 0 0 0)}
+.js [data-curtain].in .screen video,.js [data-curtain].in .screen img{transform:scale(1)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .intro .w,.js .intro-copy > *,.js [data-reveal],.js .sessions .session > *{opacity:1;transform:none}
+  .js [data-curtain] .screen{clip-path:none}
+  .js [data-curtain] .screen video,.js [data-curtain] .screen img{transform:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><g id="wm"><path fill="currentColor" d="M28.4 -0.7Q28.4 0.1 24.6 0.1Q23.7 0.1 19.0 -0.1Q16.6 -0.2 14.3 -0.2Q12.1 -0.2 6.1 -0.0L3.1 0.1Q0.9 0.2 0.9 -0.6Q0.9 -1.4 3.2 -1.3Q6.7 -1.2 7.2 -2.0Q7.8 -2.8 7.8 -8.0L7.8 -60.7Q7.8 -64.1 7.1 -64.8Q6.4 -65.4 3.0 -65.4Q0.5 -65.4 0.5 -66.1Q0.5 -66.9 3.1 -67.0Q14.3 -67.4 21.4 -70.4Q21.3 -67.4 21.3 -35.3L21.3 -10.4Q21.3 -3.6 21.7 -2.5Q22.0 -1.3 24.1 -1.4L27.1 -1.5Q28.4 -1.5 28.4 -0.7ZM83.8 -3.2Q83.8 -2.4 82.1 -2.3Q73.0 -2.0 69.5 -1.4Q66.0 -0.7 63.5 1.0Q62.9 1.4 62.4 1.4Q62.0 1.4 62.0 0.6Q62.0 -0.8 62.1 -1.7Q62.2 -2.5 62.2 -3.7Q62.2 -4.6 62.1 -5.3Q55.8 1.3 48.4 1.3Q41.8 1.3 38.0 -2.9Q35.6 -5.5 35.6 -12.5L35.6 -19.6Q35.6 -20.8 35.7 -25.5Q35.7 -30.2 35.7 -38.5Q35.7 -40.7 35.1 -41.2Q34.4 -41.7 31.4 -41.8Q28.8 -41.9 28.8 -42.6Q28.8 -43.4 30.2 -43.4L31.3 -43.4Q32.8 -43.4 35.9 -43.2Q38.9 -43.1 40.0 -43.1Q40.2 -43.1 42.1 -43.2Q43.9 -43.3 47.5 -43.3L49.4 -43.3L49.4 -32.5Q49.4 -24.8 49.2 -21.2Q49.1 -17.6 49.1 -18.1Q49.1 -7.6 50.5 -5.0Q51.8 -2.4 54.7 -2.4Q58.0 -2.4 60.9 -6.1Q61.8 -7.2 62.0 -8.3Q62.1 -9.5 62.1 -14.0L62.1 -31.2Q62.1 -38.5 61.9 -40.0Q61.7 -41.9 59.4 -41.9L56.6 -41.9Q55.2 -41.9 55.2 -42.7Q55.2 -43.3 60.6 -43.3Q65.3 -43.3 75.5 -43.4Q75.4 -39.6 75.4 -31.2L75.4 -10.9Q75.4 -6.2 75.6 -5.4Q75.8 -4.5 77.1 -4.2Q78.0 -4.0 82.5 -4.0Q83.8 -4.0 83.8 -3.2ZM138.0 -0.6Q138.0 0.1 134.3 0.1L132.6 0.1Q130.7 0.1 127.5 -0.0Q124.2 -0.1 121.2 -0.1Q117.5 -0.1 115.6 -0.0Q113.7 0.1 112.9 0.1Q111.5 0.1 111.5 -0.6Q111.5 -1.3 114.2 -1.4Q115.9 -1.5 115.9 -2.5Q115.9 -3.5 111.7 -10.3Q110.5 -12.1 108.2 -15.9Q106.6 -18.7 103.6 -23.2L103.6 -8.4Q103.6 -3.1 104.0 -2.2Q104.3 -1.3 106.2 -1.3Q106.8 -1.3 107.2 -1.4L108.0 -1.4Q109.0 -1.4 109.0 -0.6Q109.0 0.2 107.9 0.2L107.5 0.2L104.9 0.1L101.6 0.1L95.4 -0.0L85.7 -0.0Q85.2 0.1 84.6 0.1Q83.5 0.1 83.5 -0.6Q83.5 -1.3 86.1 -1.4Q89.4 -1.5 89.8 -2.0Q90.3 -2.5 90.3 -7.0L90.2 -59.7Q90.2 -63.6 89.3 -64.5Q88.5 -65.4 84.8 -65.3Q82.9 -65.3 82.9 -66.0Q82.9 -66.6 83.3 -66.7Q83.7 -66.8 86.2 -66.9Q96.3 -67.3 100.4 -69.5Q101.8 -70.3 102.8 -70.4Q103.2 -69.0 103.3 -65.0L103.5 -54.3Q103.6 -48.9 103.6 -39.2L103.6 -24.6Q105.2 -25.9 108.8 -29.9Q110.3 -31.6 113.3 -35.0Q118.1 -40.4 118.1 -40.8Q118.1 -41.3 117.5 -41.4Q116.9 -41.5 113.5 -41.6Q111.2 -41.6 111.2 -42.5Q111.2 -43.3 112.4 -43.3L120.0 -43.1L127.8 -43.3Q129.6 -43.3 129.6 -42.7Q129.6 -42.1 125.5 -41.9Q122.8 -41.8 121.1 -40.1Q118.0 -37.1 113.2 -31.7L124.7 -14.3Q125.6 -12.8 127.6 -9.8Q127.9 -9.4 129.1 -7.6L130.8 -5.2L131.6 -4.0Q132.7 -2.3 133.4 -1.9Q134.1 -1.4 136.1 -1.4Q138.0 -1.4 138.0 -0.6ZM176.9 -12.2Q176.9 -10.0 174.3 -6.4Q168.7 1.3 159.7 1.3Q149.6 1.3 143.1 -5.1Q136.6 -11.5 136.6 -21.5Q136.6 -31.3 142.9 -37.9Q149.2 -44.4 158.6 -44.4Q165.0 -44.4 169.5 -41.6Q174.5 -38.5 176.0 -32.7Q176.4 -30.9 176.6 -28.4Q174.3 -28.2 158.1 -28.1Q155.6 -28.1 151.8 -27.9Q151.5 -24.3 151.5 -21.8Q151.5 -10.1 156.4 -5.2Q159.3 -2.3 163.5 -2.3Q167.0 -2.3 170.2 -4.7Q173.5 -7.1 175.2 -10.9Q176.0 -12.8 176.5 -12.8Q176.9 -12.8 176.9 -12.2ZM164.3 -29.6Q164.4 -37.3 163.2 -40.3Q162.0 -43.3 159.0 -43.3Q152.9 -43.3 152.0 -29.6Q154.1 -29.7 160.8 -29.7Q162.8 -29.7 164.3 -29.6ZM230.2 -1.9Q230.2 -1.2 228.2 -1.2L223.7 -1.3Q218.8 -1.4 213.4 1.1Q212.8 1.3 212.7 1.3Q211.8 1.3 211.7 -0.5Q211.7 -1.4 211.4 -3.0Q207.4 1.3 200.8 1.3Q192.0 1.3 186.3 -5.2Q180.6 -11.7 180.6 -21.7Q180.6 -31.9 186.4 -38.1Q192.2 -44.4 201.7 -44.4Q207.9 -44.4 211.8 -39.8L211.8 -53.8Q211.8 -62.8 211.0 -64.5Q210.2 -66.1 205.7 -66.0Q203.1 -66.0 203.1 -66.7Q203.1 -67.4 204.3 -67.4Q213.4 -67.4 221.7 -70.1Q222.9 -70.5 223.4 -70.5Q224.5 -70.5 224.5 -68.1L224.6 -63.1L224.7 -53.5L224.7 -5.8Q224.7 -4.1 225.2 -3.5Q225.9 -2.6 228.7 -2.7Q230.2 -2.8 230.2 -1.9ZM211.7 -10.9L211.7 -32.7Q211.7 -37.2 210.2 -39.4Q208.3 -42.2 204.9 -42.2Q195.3 -42.2 195.3 -20.9Q195.3 -11.4 197.8 -6.2Q200.2 -1.0 204.6 -1.0Q207.2 -1.0 209.4 -3.4Q211.7 -5.7 211.7 -10.9ZM296.8 -35.4Q296.8 -32.7 294.3 -27.0L286.9 -10.2Q285.1 -6.1 285.1 -4.3Q285.1 -2.3 287.4 -2.3Q290.9 -2.3 294.2 -6.0Q295.4 -7.3 296.1 -7.3Q296.7 -7.3 296.7 -6.9Q296.7 -5.7 293.3 -3.3Q288.3 0.3 284.1 0.3Q281.3 0.3 279.6 -1.2Q277.8 -2.6 277.8 -4.9Q277.8 -7.4 280.0 -12.5L287.3 -29.4Q289.9 -35.4 289.9 -37.2Q289.9 -40.7 286.9 -40.7Q282.2 -40.7 276.8 -34.0Q273.3 -29.7 267.9 -17.0L261.9 -2.9Q260.5 0.4 259.8 0.4Q259.3 0.4 259.0 0.3Q257.5 0.1 256.4 0.1Q255.8 0.1 254.8 0.2Q253.7 0.4 253.2 0.4Q252.5 0.4 252.5 -0.1Q252.5 -0.4 252.9 -1.2Q253.3 -2.0 254.0 -3.5L264.4 -28.2Q267.7 -36.0 267.7 -38.4Q267.7 -41.2 264.7 -41.2Q260.8 -41.2 255.1 -34.7Q253.4 -32.7 249.8 -27.7Q248.5 -25.9 246.1 -20.2L238.6 -2.6Q237.4 0.2 236.8 0.2Q236.3 0.2 236.0 0.1Q234.4 -0.1 234.1 -0.1Q231.0 -0.1 230.4 0.2Q230.2 0.3 229.8 0.3Q229.3 0.3 229.3 -0.2Q229.8 -1.3 230.5 -2.6L246.3 -39.3Q246.6 -39.8 246.6 -40.0Q246.6 -40.9 244.8 -40.9Q242.0 -40.9 242.0 -41.9Q242.0 -42.6 243.0 -42.6Q243.9 -42.6 245.8 -42.4Q247.7 -42.2 248.6 -42.2Q253.1 -42.2 254.3 -42.9Q254.6 -43.0 254.9 -43.1Q255.5 -43.1 255.5 -42.4Q255.5 -42.2 254.6 -40.2Q253.9 -38.8 252.7 -35.3L252.2 -33.9Q253.1 -34.9 256.0 -38.1Q260.5 -43.2 267.0 -43.2Q271.1 -43.2 272.8 -41.1Q274.5 -39.0 274.7 -33.7Q281.1 -43.1 288.5 -43.1Q292.3 -43.1 294.6 -41.0Q296.8 -38.9 296.8 -35.4ZM341.1 -36.2Q341.1 -30.8 335.3 -27.2Q329.5 -23.7 320.6 -23.7Q317.4 -23.7 313.5 -24.2Q309.8 -16.5 309.8 -9.9Q309.8 -1.0 317.7 -1.0Q323.8 -1.0 329.6 -7.4Q330.9 -8.8 331.3 -8.8Q331.8 -8.8 331.8 -8.3Q331.8 -6.0 327.1 -2.6Q321.7 1.3 315.9 1.3Q309.4 1.3 305.2 -2.5Q301.0 -6.3 301.0 -12.1Q301.0 -23.3 313.2 -33.8Q323.9 -43.0 332.3 -43.0Q341.1 -43.0 341.1 -36.2ZM334.0 -37.9Q334.0 -41.0 330.9 -41.0Q327.7 -41.0 324.6 -38.6Q319.0 -34.2 314.3 -25.5Q315.5 -25.4 317.0 -25.4Q322.6 -25.4 327.9 -28.8Q334.0 -32.6 334.0 -37.9ZM400.7 -70.5Q400.6 -70.2 400.4 -69.8Q400.0 -69.0 399.3 -67.5L376.5 -12.2Q373.9 -5.9 373.9 -4.4Q373.9 -1.6 377.1 -1.6Q381.9 -1.6 385.3 -6.9Q386.4 -8.6 386.8 -8.6Q387.5 -8.6 387.5 -7.8Q387.5 -6.1 384.1 -3.0Q379.9 0.8 374.0 0.8Q366.5 0.8 366.5 -5.6Q366.5 -6.9 366.7 -8.5Q363.0 -3.2 359.6 -1.0Q356.2 1.3 351.6 1.3Q346.0 1.3 342.5 -2.2Q338.9 -5.8 338.9 -11.5Q338.9 -23.3 350.1 -33.8Q360.2 -43.3 369.4 -43.3Q375.8 -43.3 377.9 -37.2L378.5 -38.4L379.2 -39.9L390.6 -67.3Q391.0 -67.8 391.0 -68.2Q391.0 -68.9 390.5 -69.0Q389.9 -69.2 386.7 -69.4Q384.8 -69.5 384.8 -70.1Q384.8 -70.7 385.9 -70.7L387.1 -70.7Q388.4 -70.7 390.9 -70.6Q393.3 -70.5 394.4 -70.5Q398.2 -70.5 399.3 -70.9Q399.9 -71.1 400.1 -71.1Q400.7 -71.1 400.7 -70.5ZM376.6 -35.2Q376.6 -37.5 374.5 -39.3Q372.4 -41.1 369.8 -41.1Q362.4 -41.1 354.7 -28.7Q347.4 -17.0 347.4 -8.9Q347.4 -1.6 354.0 -1.6Q359.8 -1.6 365.4 -9.7Q369.4 -15.4 372.3 -23.0L374.6 -28.9Q376.6 -34.0 376.6 -35.2ZM413.9 -42.4Q413.9 -42.1 413.4 -41.2Q412.7 -40.0 411.1 -36.3L399.6 -10.0Q397.3 -4.7 397.3 -3.4Q397.3 -0.7 400.1 -0.7Q402.0 -0.7 404.4 -2.1Q406.9 -3.4 408.2 -5.3Q409.1 -6.5 409.6 -6.5Q410.2 -6.5 410.2 -5.9Q410.2 -4.7 407.4 -2.3Q403.2 1.3 397.9 1.3Q394.4 1.3 392.2 -0.5Q389.9 -2.3 389.9 -5.1Q389.9 -7.6 392.4 -13.2L402.8 -36.4Q403.3 -38.1 404.0 -39.0Q404.3 -39.4 404.3 -39.7Q404.3 -40.6 399.9 -40.9Q399.1 -41.1 399.1 -41.6Q399.1 -42.5 399.9 -42.5Q400.0 -42.5 401.4 -42.3Q402.8 -42.1 405.9 -42.1Q410.1 -42.1 411.8 -42.8Q412.8 -43.2 413.2 -43.2Q413.9 -43.2 413.9 -42.4ZM462.4 -42.6Q462.4 -42.3 461.6 -40.5L448.4 -10.5Q446.5 -6.2 446.5 -3.9Q446.5 -1.3 449.1 -1.3Q453.0 -1.3 456.9 -6.6Q457.7 -7.7 458.1 -7.7Q458.5 -7.7 458.5 -7.3Q458.5 -6.2 456.3 -3.8Q451.9 0.9 445.8 0.9Q442.7 0.9 440.8 -0.6Q438.8 -2.1 438.8 -4.5Q438.8 -6.0 439.5 -8.0Q433.2 1.3 424.9 1.3Q419.7 1.3 416.4 -2.1Q413.1 -5.4 413.1 -10.6Q413.1 -16.3 416.9 -23.1Q420.7 -29.9 427.0 -35.5Q435.6 -43.1 442.8 -43.1Q450.3 -43.1 451.2 -35.9L453.7 -41.2Q454.5 -42.8 455.1 -42.8Q455.3 -42.8 456.3 -42.6Q457.3 -42.4 457.7 -42.4Q459.9 -42.4 461.1 -43.0Q461.5 -43.3 461.8 -43.3Q462.4 -43.3 462.4 -42.6ZM449.8 -34.1Q449.8 -37.2 447.9 -39.1Q446.1 -41.0 443.2 -41.0Q438.2 -41.0 433.6 -35.1Q428.3 -28.4 425.1 -21.0Q421.9 -13.5 421.9 -7.9Q421.9 -1.1 427.5 -1.1Q430.7 -1.1 434.4 -4.6Q438.2 -8.1 440.7 -13.4L448.5 -30.2Q449.8 -33.0 449.8 -34.1Z"/><circle cx="407.7" cy="-51.0" r="5.6" fill="#C23A2E" style="opacity:var(--dot,1);transform:scale(var(--dotS,1));transform-box:fill-box;transform-origin:center"/></g></defs></svg>
+<header class="top shell" id="top-bar">
+  <a class="mark" href="#top" aria-label="lukedmedia, back to top"><svg class="logo" viewBox="-0.5 -72.1 463.9 74.5" aria-hidden="true" focusable="false"><use href="#wm"/></svg></a>
+  <nav class="nav cap" aria-label="Main">
+    <a href="#work">Work</a>
+    <a href="#arsenal">Arsenal</a>
+    <a href="#prices">Prices</a>
+    <a class="nav-cta" href="#book">Book a shoot</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="intro shell">
+    <h1><span class="line"><span class="w" style="--i:0">Welcome</span> <span class="w" style="--i:1">to</span></span> <span class="w h1-logo" style="--i:2"><svg class="logo" viewBox="-0.5 -72.1 463.9 74.5" role="img" aria-label="lukedmedia"><use href="#wm"/></svg></span></h1>
+    <div class="intro-copy">
+      <div class="intro-text" style="--i:4">
+        <p class="lede">Reels, YouTube edits and ads, cut to a song you pick. <span class="lede-2">Dirt bikes are my thing, but I’ll film anything: sport, events, your business, even a house for sale.</span></p>
+      </div>
+      <div class="cta-row" style="--i:5">
+        <a class="btn" href="#book">Book a shoot</a>
+        <a class="btn ghost" href="#prices">See prices</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell work" id="work" aria-label="Recent work">
+    <!--
+      YOUR WORK
+      Each clip is a <figure>. Web versions live in media/: silent H.264.
+      data-src is the light 720p file phones get; data-src-hd is the full-resolution file
+      laptops and tablets get. To add one, copy a figure, point both at the new files and
+      poster at a still from the clip.
+      Use class "wide" for 16:9 and "tall" for 9:16.
+    -->
+    <div class="reels">
+      <figure class="clip wide" data-curtain data-reveal>
+        <div class="screen">
+          <video muted loop playsinline preload="none" width="1280" height="720" poster="media/dylan-mx2.jpg" data-src="media/dylan-mx2.mp4" data-src-hd="media/dylan-mx2-hd.mp4" aria-label="Dylan Bezuidenhout's MX2 race day: pits, the start gate, berms and jumps"></video>
+          <button class="vid-toggle" type="button">Pause</button>
+        </div>
+        <figcaption><b>Dylan Bezuidenhout, MX2 race day</b><span class="meta">Landscape edit</span></figcaption>
+      </figure>
+      <figure class="clip tall" data-curtain data-reveal style="--i:1">
+        <div class="screen">
+          <video muted loop playsinline preload="none" width="720" height="1280" poster="media/kegan-fpv.jpg" data-src="media/kegan-fpv.mp4" data-src-hd="media/kegan-fpv-hd.mp4" aria-label="FPV drone chasing a rider across an open field"></video>
+          <button class="vid-toggle" type="button">Pause</button>
+        </div>
+        <figcaption><b>FPV chase</b><span class="meta">Vertical reel</span></figcaption>
+      </figure>
+    </div>
+    <p class="more cap"><a href="https://www.instagram.com/luked.media/" target="_blank" rel="noopener" data-cfg="ig-short">More on Instagram</a></p>
+  </section>
+
+  <section class="section shell other" id="anything">
+    <div class="other-row" data-reveal>
+      <h2>Not just bikes</h2>
+      <div class="other-copy">
+        <p class="other-lede">Bikes are what I ride, so that’s where most of my work is. But if it can be filmed, I’ll film it: a padel racket launch, a school sports day, a lawn makeover.</p>
+      </div>
+    </div>
+    <div class="wide-row">
+      <figure class="clip wide" data-curtain data-reveal>
+        <div class="screen">
+          <video muted loop playsinline preload="none" width="1280" height="720" poster="media/padel-pulse-pro-x.jpg" data-src="media/padel-pulse-pro-x.mp4" aria-label="Launch ad for the Pulse Pro X padel racket"></video>
+          <button class="vid-toggle" type="button">Pause</button>
+        </div>
+        <figcaption><b>Pulse Pro X launch ad</b><span class="meta">Pulse Pro Padel</span></figcaption>
+      </figure>
+      <figure class="clip wide" data-curtain data-reveal style="--i:1">
+        <div class="screen">
+          <video muted loop playsinline preload="none" width="1280" height="720" poster="media/alma-superbowl.jpg" data-src="media/alma-superbowl.mp4" aria-label="School sports day: drone shots of the crowd and the players"></video>
+          <button class="vid-toggle" type="button">Pause</button>
+        </div>
+        <figcaption><b>Superbowl day</b><span class="meta">Alma Mater, shot with @shotbyzuva_</span></figcaption>
+      </figure>
+    </div>
+    <div class="reel-row">
+      <figure class="clip tall" data-curtain data-reveal style="--i:0">
+        <div class="screen">
+          <video muted loop playsinline preload="none" width="720" height="1280" poster="media/lawn-before-after.jpg" data-src="media/lawn-before-after.mp4" aria-label="Drone shots of a back garden before and after a new lawn"></video>
+          <button class="vid-toggle" type="button">Pause</button>
+        </div>
+        <figcaption><b>Lawn makeover</b><span class="meta">Black &amp; Gold Lawn</span></figcaption>
+      </figure>
+      <figure class="clip tall" data-curtain data-reveal style="--i:1">
+        <div class="screen">
+          <video muted loop playsinline preload="none" width="720" height="1280" poster="media/lawn-promo.jpg" data-src="media/lawn-promo.mp4" aria-label="Drone and ground shots of a big lawn being mowed next to a pool"></video>
+          <button class="vid-toggle" type="button">Pause</button>
+        </div>
+        <figcaption><b>Lawn care promo</b><span class="meta">Black &amp; Gold Lawn</span></figcaption>
+      </figure>
+      <figure class="clip tall" data-curtain data-reveal style="--i:2">
+        <div class="screen">
+          <video muted loop playsinline preload="none" width="720" height="1280" poster="media/monnas-field.jpg" data-src="media/monnas-field.mp4" aria-label="Drone shots of a school sports field before and after"></video>
+          <button class="vid-toggle" type="button">Pause</button>
+        </div>
+        <figcaption><b>Monnas field makeover</b><span class="meta">Black &amp; Gold Lawn</span></figcaption>
+      </figure>
+    </div>
+    <div class="other-row other-ask" data-reveal>
+      <p class="cap">What do you need filmed?</p>
+      <div class="other-copy">
+        <ul class="kinds">
+          <li><button class="kind pick" type="button" data-pkg="Custom" data-ride="Sport">Sport</button></li>
+          <li><button class="kind pick" type="button" data-pkg="Custom" data-ride="An event">Events</button></li>
+          <li><button class="kind pick" type="button" data-pkg="Custom" data-ride="A business">Business ads</button></li>
+          <li><button class="kind pick" type="button" data-pkg="Custom" data-ride="Property">Property</button></li>
+          <li><button class="kind pick" type="button" data-pkg="Custom" data-ride="Something else">Anything else</button></li>
+        </ul>
+        <p class="sec-note">Tap one to send me a request. Tell me what you want and what you’d like to spend.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell about" id="about" aria-label="About">
+    <!-- Photo of Luke on his bike: save it as media/luke.jpg (portrait, about 1200px tall). -->
+    <figure class="me" data-curtain data-reveal>
+      <div class="screen"><img src="media/luke.jpg" alt="Luke riding his green Kawasaki, number 93, on a dirt track" width="1000" height="1250" loading="lazy" decoding="async"></div>
+    </figure>
+    <div class="about-copy" data-reveal style="--i:1">
+      <p class="big">I’m Luke. I ride motocross myself, so I know where to stand, which lines look good on camera and which moments a rider actually wants to keep. The same eye works on everything else I film.</p>
+      <p class="small">Based in Johannesburg, filming all over Gauteng.</p>
+    </div>
+  </section>
+
+  <section class="section shell" id="services">
+    <header class="sec-head" data-reveal>
+      <h2>What I do</h2>
+      <p class="sec-note">Filmed and edited by me, ready to post.</p>
+    </header>
+    <dl class="services">
+      <div data-reveal><dt>Reels</dt><dd>Vertical edits for Instagram and TikTok. You pick the song and I cut the footage to it, ready to post within the week.</dd></div>
+      <div data-reveal><dt>YouTube</dt><dd>Longer edits for your channel: a race day, an event, a vlog or a ride with your mates. Landscape, in 4K.</dd></div>
+      <div data-reveal><dt>Ads and promos</dt><dd>Short videos for your business: a product, a shop, an event or a property walk-through. Made to post, or to run as an ad.</dd></div>
+      <div data-reveal><dt>Photos</dt><dd>I can shoot photos on the same day too, edited and sized for socials.</dd></div>
+    </dl>
+  </section>
+
+  <section class="section shell" id="arsenal">
+    <header class="sec-head" data-reveal>
+      <h2>Arsenal</h2>
+      <p class="sec-note">What’s in the bag.</p>
+    </header>
+    <ul class="kit">
+      <li data-reveal><span class="kit-name">Sony ZV-E10</span><span>Main camera</span><span class="kit-spec">4K 30p · 1080p 120 fps</span></li>
+      <li data-reveal><span class="kit-name">Tamron 17–70mm f/2.8</span><span>Main lens, stabilised. The ND filter keeps motion smooth in full sun.</span><span class="kit-spec">f/2.8 · ND filter</span></li>
+      <li data-reveal><span class="kit-name">DJI Osmo Action 4</span><span>On the bike or on the helmet</span><span class="kit-spec">4K · 120 fps</span></li>
+      <li data-reveal><span class="kit-name">DJI Mic Mini</span><span>Interviews and talking to camera</span><span class="kit-spec">2 wireless mics</span></li>
+    </ul>
+  </section>
+
+  <section class="section shell" id="prices">
+    <header class="sec-head" data-reveal>
+      <h2>Prices</h2>
+      <p class="sec-note">In rand. The first three are for riders. For anything else, make me an offer with Custom. Every package includes personal and social media use, and travel around Johannesburg.</p>
+    </header>
+
+    <div class="sessions" data-reveal>
+      <article class="session" data-pkg="Reel">
+        <div class="s-top"><h3 class="cap">Reel</h3></div>
+        <p class="price"><span class="cur">R</span>1&nbsp;200</p>
+        <p class="unit">per rider</p>
+        <p class="for">One reel from a practice or a track day.</p>
+        <ul class="incl">
+          <li>Up to 2 hours at the track</li>
+          <li>1 reel, cut to a song you pick</li>
+          <li>Ready in 3 days</li>
+        </ul>
+        <button class="btn ghost pick" type="button" data-pkg="Reel">Choose Reel</button>
+      </article>
+
+      <article class="session" data-pkg="Practice day">
+        <div class="s-top"><h3 class="cap">Practice day</h3></div>
+        <p class="price"><span class="cur">R</span>2&nbsp;800</p>
+        <p class="unit">per rider</p>
+        <p class="for">A few reels to post over the next couple of weeks.</p>
+        <ul class="incl">
+          <li>Up to 4 hours at the track</li>
+          <li>3 reels, each cut to a song you pick</li>
+          <li>15 edited photos</li>
+          <li>Ready in 5 days</li>
+        </ul>
+        <button class="btn ghost pick" type="button" data-pkg="Practice day">Choose Practice day</button>
+      </article>
+
+      <article class="session" data-pkg="Race day">
+        <div class="s-top"><h3 class="cap">Race day</h3></div>
+        <p class="price"><span class="cur">R</span>5&nbsp;500</p>
+        <p class="unit">per rider</p>
+        <p class="for">Your whole race day, from the pits to the last moto.</p>
+        <ul class="incl">
+          <li>Up to 8 hours</li>
+          <li>A YouTube edit of your day</li>
+          <li>3 reels</li>
+          <li>30 edited photos</li>
+          <li>A teaser reel within 24 hours</li>
+          <li>Ready in 7 days</li>
+        </ul>
+        <button class="btn ghost pick" type="button" data-pkg="Race day">Choose Race day</button>
+      </article>
+
+      <article class="session custom" data-pkg="Custom">
+        <div class="s-top"><h3 class="cap">Custom</h3></div>
+        <p class="price words">Your offer</p>
+        <p class="unit">you set the budget</p>
+        <p class="for">Not a riding shoot, or something bigger? An event, a business, a property, a full race weekend. Tell me what you want and what you’d like to spend, and I’ll tell you straight if I can do it.</p>
+        <button class="btn pick" type="button" data-pkg="Custom">Make an offer</button>
+      </article>
+    </div>
+
+    <div class="after">
+      <div data-reveal>
+        <h3 class="cap">Extras</h3>
+        <dl class="extras">
+          <div><dt>Extra rider, same day</dt><dd>R700</dd></div>
+          <div><dt>Extra reel</dt><dd>R450</dd></div>
+          <div><dt>Raw video footage</dt><dd>R800</dd></div>
+          <div><dt>Raw photo files</dt><dd>R500</dd></div>
+          <div><dt>Your sponsor using it in their ads</dt><dd>R1&nbsp;000</dd></div>
+          <div><dt>48-hour delivery</dt><dd>+25%</dd></div>
+          <div><dt>Travel elsewhere in Gauteng</dt><dd>R350</dd></div>
+          <div><dt>Outside Gauteng</dt><dd>Quoted</dd></div>
+        </dl>
+      </div>
+      <div data-reveal style="--i:1">
+        <h3 class="cap">How booking works</h3>
+        <p class="how">Send me a message below and I’ll reply within a day. A 50% deposit locks in your date, and the rest is due when your files are ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section shell book" id="book">
+    <header class="sec-head" data-reveal>
+      <h2>Book a shoot</h2>
+      <p class="sec-note">Pick what you need, add your name and how to reach you, and send. We’ll sort out the song and where we’re shooting in the chat.</p>
+    </header>
+
+    <form class="form" id="enq" novalidate data-reveal>
+      <fieldset>
+        <legend class="cap">What are we filming?</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="ride" value="Motocross"><span>Motocross</span></label>
+          <label class="chip"><input type="radio" name="ride" value="Enduro"><span>Enduro</span></label>
+          <label class="chip"><input type="radio" name="ride" value="Sport"><span>Sport</span></label>
+          <label class="chip"><input type="radio" name="ride" value="An event"><span>An event</span></label>
+          <label class="chip"><input type="radio" name="ride" value="A business"><span>A business</span></label>
+          <label class="chip"><input type="radio" name="ride" value="Property"><span>Property</span></label>
+          <label class="chip"><input type="radio" name="ride" value="Something else"><span>Something else</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="cap">What do you want? <span class="opt">(optional)</span></legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="want" value="Reels"><span>Reels</span></label>
+          <label class="chip"><input type="radio" name="want" value="YouTube video"><span>YouTube video</span></label>
+          <label class="chip"><input type="radio" name="want" value="Reels + YouTube"><span>Reels + YouTube</span></label>
+          <label class="chip"><input type="radio" name="want" value="An ad or promo"><span>An ad or promo</span></label>
+          <label class="chip"><input type="radio" name="want" value="Photos"><span>Photos</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="cap">Package</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="pkg" value="Reel"><span>Reel · R1 200</span></label>
+          <label class="chip"><input type="radio" name="pkg" value="Practice day"><span>Practice day · R2 800</span></label>
+          <label class="chip"><input type="radio" name="pkg" value="Race day"><span>Race day · R5 500</span></label>
+          <label class="chip"><input type="radio" name="pkg" value="Custom"><span>Custom offer</span></label>
+          <label class="chip"><input type="radio" name="pkg" value="Not sure yet"><span>Not sure yet</span></label>
+        </div>
+        <div class="drawer" id="budget-drawer">
+          <div inert>
+            <div class="field"><label class="cap" for="f-budget">Your budget</label><input type="text" id="f-budget" inputmode="numeric" placeholder="e.g. R3 000"></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="fields">
+        <div class="field"><label class="cap" for="f-name">Your name</label><input type="text" id="f-name" autocomplete="name"></div>
+        <div class="field"><label class="cap" for="f-contact">Your Instagram, number or email</label><input type="text" id="f-contact" autocomplete="off" placeholder="@yourhandle"></div>
+        <div class="field"><label class="cap" for="f-date">Date <span class="opt">(if you know it)</span></label><input type="date" id="f-date"></div>
+      </div>
+      <div class="field"><label class="cap" for="f-notes" id="notes-label">Anything else (optional)</label><textarea id="f-notes" rows="3" placeholder="Race number, class, sponsors to show, the shot you’ve always wanted"></textarea></div>
+
+      <div class="send">
+        <a class="btn" id="send-ig" href="https://ig.me/m/luked.media" target="_blank" rel="noopener">Send on Instagram</a>
+        <a class="btn ghost" id="send-mail" href="#">Send by email</a>
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+      <p class="err" id="err" role="alert" hidden></p>
+      <details class="preview">
+        <summary class="cap">Preview your message</summary>
+        <pre id="msg"></pre>
+        <button class="btn ghost" type="button" id="copy">Copy message</button>
+      </details>
+      <p class="direct">Or DM me on Instagram <a href="https://www.instagram.com/luked.media/" target="_blank" rel="noopener" data-cfg="ig-handle">@luked.media</a> or email <a data-cfg="email" href="#book">me</a></p>
+    </form>
+  </section>
+</main>
+
+<footer class="foot shell">
+  <a class="mark" href="#top" aria-label="lukedmedia, back to top"><svg class="logo" viewBox="-0.5 -72.1 463.9 74.5" aria-hidden="true" focusable="false"><use href="#wm"/></svg></a>
+  <div class="foot-row">
+    <div class="foot-links">
+      <a href="https://www.instagram.com/luked.media/" target="_blank" rel="noopener" data-cfg="ig">Instagram @luked.media</a>
+      <a href="#book">Book a shoot</a>
+      <a href="#prices">Prices</a>
+    </div>
+    <p>Johannesburg, Gauteng. © 2026 lukedmedia</p>
+  </div>
+</footer>
+
+<dialog class="viewer" id="viewer" aria-label="Watch with sound">
+  <div class="viewer-box">
+    <video id="viewer-video" controls playsinline preload="metadata"></video>
+    <div class="viewer-bar">
+      <p class="viewer-cap"><b id="viewer-title"></b> <span class="meta" id="viewer-meta"></span></p>
+      <div class="viewer-nav">
+        <button class="vbtn" type="button" data-step="-1" aria-label="Previous video">Prev</button>
+        <button class="vbtn" type="button" data-step="1" aria-label="Next video">Next</button>
+        <button class="vbtn" type="button" data-close>Close</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  /* ======================================================
+     EDIT THESE before you go live
+     ====================================================== */
+  const CONFIG = {
+    email: ["chamberspersonal.luke", "gmail.com"].join("@"),  // split so bots scanning the page don't grab it
+    instagram: "luked.media"
+  };
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = (id) => document.getElementById(id);
+  const hasIO = "IntersectionObserver" in window;
+  // lets :active (the pressed look) work on iPhones
+  document.addEventListener("touchstart", () => {}, { passive: true });
+
+  document.querySelectorAll('[data-cfg="ig-handle"]').forEach(el => {
+    el.href = "https://www.instagram.com/" + CONFIG.instagram + "/";
+    el.textContent = "@" + CONFIG.instagram;
+  });
+  document.querySelectorAll('[data-cfg="email"]').forEach(el => {
+    el.textContent = CONFIG.email;
+    if (el.tagName === "A") el.href = "mailto:" + CONFIG.email;
+  });
+  document.querySelectorAll('[data-cfg="ig"]').forEach(el => {
+    el.href = "https://www.instagram.com/" + CONFIG.instagram + "/";
+    el.textContent = "Instagram @" + CONFIG.instagram;
+  });
+  document.querySelectorAll('[data-cfg="ig-short"]').forEach(el => {
+    el.href = "https://www.instagram.com/" + CONFIG.instagram + "/";
+  });
+
+  /* ======================================================
+     HEADER: tucks away when scrolling down, comes back when scrolling up
+     ====================================================== */
+  const bar = $("top-bar");
+  let lastY = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const y = window.scrollY, dy = y - lastY;
+    if (Math.abs(dy) < 6) return;
+    bar.classList.toggle("tucked", dy > 0 && y > 140 && !bar.contains(document.activeElement));
+    lastY = y;
+  }, { passive: true });
+
+  /* ======================================================
+     REVEAL: sections ease in as you reach them
+     ====================================================== */
+  // stagger rows that sit in the same list
+  [".services > div", ".kit li", ".sessions .session"].forEach(sel => {
+    document.querySelectorAll(sel).forEach((el, i) => el.style.setProperty("--i", i));
+  });
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  if (reduce || !hasIO) revealEls.forEach(el => el.classList.add("in"));
+  else {
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    }), { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  /* ======================================================
+     VIDEOS: load when they come into view, play while visible (muted),
+     pause when scrolled past. The Pause button pauses; tapping the clip or
+     "Sound on" opens it big in the viewer with sound.
+     ====================================================== */
+  const preview = location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  // full resolution on laptops and tablets; phones get the lighter 720p file to save data
+  const saveData = !!(navigator.connection && navigator.connection.saveData);
+  const wantHD = window.matchMedia("(min-width: 768px)").matches && !saveData;
+  document.querySelectorAll(".clip video").forEach(v => {
+    if (wantHD && v.dataset.srcHd) v.dataset.src = v.dataset.srcHd;
+    const screen = v.closest(".screen"), btn = screen.querySelector(".vid-toggle");
+    const open = document.createElement("button");
+    open.type = "button"; open.className = "vid-open"; open.textContent = "Sound on";
+    screen.appendChild(open);
+    let userPaused = reduce;
+    const load = () => { if (!v.getAttribute("src")) v.src = v.dataset.src; };
+    const play = () => { if (userPaused) return; load(); const p = v.play(); if (p && p.catch) p.catch(() => { userPaused = true; sync(); }); };
+    const sync = () => { const off = v.paused; btn.textContent = off ? "Play" : "Pause"; screen.classList.toggle("paused", off); };
+    const toggle = () => { if (v.paused) { userPaused = false; load(); v.play().catch(() => {}); } else { userPaused = true; v.pause(); } };
+    v.addEventListener("play", sync); v.addEventListener("pause", sync);
+    btn.addEventListener("click", (e) => { e.stopPropagation(); toggle(); });
+    v.addEventListener("click", () => openViewer(v));
+    open.addEventListener("click", (e) => { e.stopPropagation(); openViewer(v); });
+    v._play = play;
+    v.addEventListener("error", () => {
+      const fig = v.closest("figure");
+      if (!fig) return;
+      if (preview) { screen.classList.add("empty"); screen.dataset.file = v.dataset.src; v.remove(); btn.remove(); open.remove(); }
+      else fig.remove();
+    });
+    sync();
+    if (!hasIO) { load(); play(); return; }
+    new IntersectionObserver(([e]) => {
+      v._visible = e.isIntersecting && e.intersectionRatio >= 0.25;
+      if (v._visible) { if (!viewer.open) play(); }
+      else if (!v.paused) v.pause();
+    }, { threshold: [0, 0.25] }).observe(v);
+  });
+
+  /* the viewer */
+  const viewer = $("viewer"), vv = $("viewer-video");
+  const clipVideos = () => [...document.querySelectorAll(".clip video")];
+  let current = -1;
+  function openViewer(v) {
+    const list = clipVideos();
+    current = list.indexOf(v);
+    show(0);
+  }
+  function show(step) {
+    const list = clipVideos();
+    if (!list.length) return;
+    current = (current + step + list.length) % list.length;
+    const v = list[current], fig = v.closest("figure");
+    const from = v.getAttribute("src") === v.dataset.src && step === 0 ? v.currentTime : 0;
+    list.forEach(x => { if (!x.paused) x.pause(); });
+    $("viewer-title").textContent = fig.querySelector("figcaption b").textContent;
+    $("viewer-meta").textContent = fig.querySelector("figcaption .meta").textContent;
+    vv.poster = v.poster; vv.src = v.dataset.src; vv.muted = false;
+    if (from) vv.addEventListener("loadedmetadata", () => { vv.currentTime = from; }, { once: true });
+    if (!viewer.open) { viewer.showModal(); document.documentElement.classList.add("viewing"); }
+    vv.play().catch(() => {});
+  }
+  viewer.querySelectorAll("[data-step]").forEach(b => b.addEventListener("click", () => show(+b.dataset.step)));
+  viewer.querySelector("[data-close]").addEventListener("click", () => viewer.close());
+  viewer.addEventListener("click", (e) => { if (e.target === viewer) viewer.close(); });
+  viewer.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") { e.preventDefault(); show(1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); show(-1); }
+  });
+  viewer.addEventListener("close", () => {
+    vv.pause(); vv.removeAttribute("src"); vv.load();
+    document.documentElement.classList.remove("viewing");
+    clipVideos().forEach(x => { if (x._visible && x._play) x._play(); });
+  });
+
+  /* photo slots: missing files show as drop targets on your computer and vanish on the live site */
+  document.querySelectorAll(".me img").forEach(img => {
+    const missing = () => {
+      const fig = img.closest("figure");
+      if (!fig) return;
+      if (preview) { const s = img.parentElement; s.classList.add("empty"); s.dataset.file = img.getAttribute("src"); img.remove(); }
+      else fig.remove();
+    };
+    if (img.complete && img.naturalWidth === 0) missing();
+    else img.addEventListener("error", missing, { once: true });
+  });
+
+  /* ======================================================
+     BOOKING FORM
+     ====================================================== */
+  const form = $("enq");
+  // song and venue aren't asked here: Luke sorts those out in the chat after they've booked
+  const f = { date: $("f-date"), name: $("f-name"), contact: $("f-contact"), notes: $("f-notes"), budget: $("f-budget") };
+  const NEXT = " I’ll reply within a day and we’ll sort out the song and where we’re shooting.";
+  const radio = (name) => { const el = form.querySelector('input[name="' + name + '"]:checked'); return el ? el.value : ""; };
+  const PRICE = { "Reel": "R1 200", "Practice day": "R2 800", "Race day": "R5 500" };
+  const status = $("status"), err = $("err"), msgEl = $("msg"), ig = $("send-ig"), mail = $("send-mail");
+  const drawer = $("budget-drawer"), notesLabel = $("notes-label");
+  const cards = document.querySelectorAll(".session[data-pkg]");
+  let wasReady = false;
+
+  const fmtDate = (val) => {
+    if (!val) return "";
+    const dt = new Date(val + "T12:00:00");
+    return isNaN(dt) ? val : dt.toLocaleDateString("en-ZA", { weekday: "short", day: "numeric", month: "long", year: "numeric" });
+  };
+
+  function compose() {
+    const pkg = radio("pkg"), custom = pkg === "Custom";
+    const rows = [
+      ["Name", f.name.value.trim()],
+      ["Contact", f.contact.value.trim()],
+      ["Shoot", radio("ride")],
+      ["Wants", radio("want")],
+      ["Package", pkg ? pkg + (PRICE[pkg] ? " (" + PRICE[pkg] + ")" : "") : ""],
+      ["Budget", custom ? f.budget.value.trim() : ""],
+      ["Date", fmtDate(f.date.value)],
+      [custom ? "The job" : "Notes", f.notes.value.trim()]
+    ].filter(([, val]) => val);
+    const hello = custom ? "Hi Luke, I’ve got a custom job for you." : "Hi Luke, I’d like to book a shoot.";
+    return hello + "\n\n" + rows.map(([k, val]) => k + ": " + val).join("\n") + "\n\nSent from lukedmedia.com";
+  }
+
+  function missing() {
+    const out = [];
+    const custom = radio("pkg") === "Custom";
+    if (!radio("ride")) out.push(["what we’re filming", form.querySelector('input[name="ride"]')]);
+    if (custom && !f.budget.value.trim()) out.push(["your budget", f.budget]);
+    if (custom && !f.notes.value.trim()) out.push(["what the job is", f.notes]);
+    if (!f.name.value.trim()) out.push(["your name", f.name]);
+    if (!f.contact.value.trim()) out.push(["how to reach you", f.contact]);
+    return out;
+  }
+  const listOf = (m) => m.map(x => x[0]).join(", ").replace(/, ([^,]*)$/, " and $1");
+
+  function update() {
+    const pkg = radio("pkg"), custom = pkg === "Custom";
+
+    // budget drawer + the notes box asks a different question for custom jobs
+    drawer.classList.toggle("open", custom);
+    drawer.firstElementChild.inert = !custom;
+    notesLabel.textContent = custom ? "What do you want?" : "Anything else (optional)";
+    f.notes.placeholder = custom ? "The job, the day, how many riders, what you want out of it" : "Race number, class, sponsors to show, the shot you’ve always wanted";
+
+    // keep the price cards in step with the form
+    cards.forEach(c => {
+      const on = c.dataset.pkg === pkg;
+      c.classList.toggle("chosen", on);
+      const b = c.querySelector(".pick");
+      if (!b) return;
+      if (!b.dataset.label) b.dataset.label = b.textContent;
+      b.textContent = on ? "Selected" : b.dataset.label;
+      b.classList.toggle("is-on", on);
+    });
+
+    const m = missing();
+    const ready = m.length === 0;
+    status.innerHTML = ready ? "<b>Ready.</b> Tap Send on Instagram and paste the message into the chat." : "Still need " + listOf(m) + ".";
+    if (ready && !wasReady && !reduce) { ig.classList.remove("ready"); void ig.offsetWidth; ig.classList.add("ready"); }
+    wasReady = ready;
+
+    const msg = compose();
+    msgEl.textContent = msg;
+    ig.href = "https://ig.me/m/" + CONFIG.instagram;   // Instagram can't pre-fill a DM, so the message is copied on tap
+    const subject = (custom ? "Custom job" : "Shoot enquiry") + (radio("ride") ? " · " + radio("ride") : "") + (f.name.value.trim() ? " · " + f.name.value.trim() : "");
+    mail.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(msg);
+    if (!err.hidden && ready) err.hidden = true;
+  }
+
+  function guard(e) {
+    const m = missing();
+    if (m.length) {
+      e.preventDefault();
+      err.textContent = "Before sending, add " + listOf(m) + ".";
+      err.hidden = false;
+      m[0][1].focus();
+    }
+  }
+  ig.addEventListener("click", (e) => {
+    guard(e);
+    if (e.defaultPrevented) return;
+    const text = compose();
+    const copied = () => { status.innerHTML = "<b>Message copied.</b> Paste it into the Instagram chat." + NEXT; };
+    const fallback = () => {
+      const d = form.querySelector(".preview"); d.open = true;
+      const r = document.createRange(); r.selectNodeContents(msgEl); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      status.innerHTML = "<b>Copy the message below</b>, then paste it into the Instagram chat." + NEXT;
+    };
+    try { navigator.clipboard.writeText(text).then(copied, fallback); } catch (_) { fallback(); }
+  });
+  mail.addEventListener("click", (e) => {
+    guard(e);
+    if (!e.defaultPrevented) status.innerHTML = "<b>Your email app should open with the message ready.</b>" + NEXT;
+  });
+  form.addEventListener("input", update);
+  form.addEventListener("change", update);
+  form.addEventListener("submit", (e) => { e.preventDefault(); ig.click(); });
+
+  $("copy").addEventListener("click", (e) => {
+    const btn = e.currentTarget, text = msgEl.textContent;
+    const done = () => { btn.textContent = "Copied"; setTimeout(() => btn.textContent = "Copy message", 1600); };
+    const fallback = () => { const range = document.createRange(); range.selectNodeContents(msgEl); const s = getSelection(); s.removeAllRanges(); s.addRange(range); btn.textContent = "Selected, copy it now"; };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (_) { fallback(); }
+  });
+
+  document.querySelectorAll(".pick").forEach(btn => btn.addEventListener("click", () => {
+    const input = form.querySelector('input[name="pkg"][value="' + btn.dataset.pkg + '"]');
+    if (input) input.checked = true;
+    const ride = btn.dataset.ride && form.querySelector('input[name="ride"][value="' + btn.dataset.ride + '"]');
+    if (ride) ride.checked = true;
+    update();
+    $("book").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }));
+
+  update();
+})();
+</script>
+</body>
+</html>
